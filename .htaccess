@@ -1,0 +1,44 @@
+RewriteEngine On
+#Options +FollowSymLinks
+RewriteBase /site/
+
+# visualizza news
+RewriteRule ^show-news/([0-9]+)-([^/]+)\.html$ index.php?modulo=view-news&id_news=$1 [L]
+
+# paginazione dates
+RewriteRule ^date/page-([^/\.]+)\.html$ index.php?modulo=dates&page=$next [L]
+
+# paginazione releases con artista
+RewriteRule ^release/([^/\.]+)/page-([^/\.]+)\.html$  index.php?modulo=releases&page=$2&artista=$1 [L]
+
+# paginazione releases senza artista
+RewriteRule ^release/page-([^/\.]+)\.html$ index.php?modulo=releases&page=$1 [L]
+
+# pagina releases filtrata
+RewriteRule ^release/([^/\.]+)\.html$ index.php?modulo=releases&artista=$1 [L]
+
+# paginazione news con tag
+RewriteRule ^news/([^/\.]+)/page-([^/\.]+)\.html$ index.php?modulo=main&page=$2&tag=$1 [L]
+
+# paginazione news senza tag
+RewriteRule ^news/page-([^/\.]+)\.html$ index.php?modulo=main&page=$1 [L]
+
+# paginazione artisti
+RewriteRule ^artist/page-([^/\.]+)\.html$ index.php?modulo=artists&page=$1 [L]
+
+# pagina news generale
+RewriteRule ^news.html$ index.php?modulo=main [L]
+
+# pagina news con tag
+RewriteRule ^news/([^/\.]+)\.html$ index.php?modulo=main&tag=$1 [L]
+
+# pagine in generale
+RewriteRule ^([^/\.]+)\.html$ index.php?modulo=$1 [QSA]
+
+
+
+
+
+
+
+
